@@ -8,7 +8,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.string :email
       t.integer :cnic
       t.text :address
-      t.string :studying_status
+      t.integer :studying_status
       t.text :teacher_remarks
       t.uuid :parent_id
       t.uuid :branch_id
