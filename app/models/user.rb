@@ -9,7 +9,14 @@ class User < ApplicationRecord
   has_many :teach_classes
   has_many :courses, through: :teach_classes
   has_many :exams
+  
+
   :email.downcase
-  validates_uniqueness_of :email
-  validates_uniqueness_of :phone, :case_sensitive => false
+  
+  validates_uniqueness_of :phone, :numericality => true
+  
+  validates_uniqueness_of :cnic, :numericality => true
+  
+  validates_presence_of :role
+
 end

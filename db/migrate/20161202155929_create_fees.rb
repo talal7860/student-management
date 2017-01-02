@@ -5,6 +5,7 @@ class CreateFees < ActiveRecord::Migration[5.0]
       t.integer :amount
       t.date :pay_date
       t.integer :scholarship
+      t.integer :pay_status
 
       t.timestamps
     end
