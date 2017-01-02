@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202173255) do
+ActiveRecord::Schema.define(version: 20161202173150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,9 @@ ActiveRecord::Schema.define(version: 20161202173255) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "books", force: :cascade do |t|
-    t.uuid     "course_id"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "branches", force: :cascade do |t|
     t.string   "name"
-    t.string   "branch_type"
+    t.integer  "branch_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -62,6 +55,7 @@ ActiveRecord::Schema.define(version: 20161202173255) do
     t.integer  "amount"
     t.date     "pay_date"
     t.integer  "scholarship"
+    t.integer  "pay_status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -69,14 +63,14 @@ ActiveRecord::Schema.define(version: 20161202173255) do
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
-    t.integer  "class"
+    t.integer  "student_class"
     t.date     "dob"
     t.string   "email"
     t.integer  "cnic"
     t.text     "address"
     t.integer  "studying_status"
     t.text     "teacher_remarks"
-    t.uuid     "parent_id"
+    t.uuid     "user_id"
     t.uuid     "branch_id"
     t.integer  "matric_roll_no"
     t.integer  "matric_marks"
@@ -85,7 +79,7 @@ ActiveRecord::Schema.define(version: 20161202173255) do
   end
 
   create_table "teach_classes", force: :cascade do |t|
-    t.uuid     "teacher_id"
+    t.uuid     "user_id"
     t.uuid     "student_id"
     t.uuid     "course_id"
     t.uuid     "branch_id"

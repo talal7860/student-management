@@ -31,6 +31,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rspec-rails'
 gem 'devise'
+gem 'phony'
+gem 'phony_rails'
+gem "cancan"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

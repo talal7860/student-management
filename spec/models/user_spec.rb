@@ -7,6 +7,8 @@ RSpec.describe User, type: :model do
 		it { should have_many(:students) }
 		it { should have_many(:courses) }
 		it { should validate_uniqueness_of(:email).case_insensitive }
-		it { should validate_uniqueness_of(:phone).case_insensitive }
+		it { should validate_uniqueness_of(:phone) }
+    it { should validate_uniqueness_of(:cnic) }
+    it { should validate_presence_of(:role) }
 	end
 end
