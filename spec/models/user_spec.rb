@@ -9,6 +9,8 @@ RSpec.describe User, type: :model do
 		it { should validate_uniqueness_of(:email).case_insensitive }
 		it { should validate_uniqueness_of(:phone) }
     it { should validate_uniqueness_of(:cnic) }
+    it { should validate_presence_of(:cnic) }
+    it { should validate_presence_of(:phone) }
     it { should validate_presence_of(:role) }
 	end
 end

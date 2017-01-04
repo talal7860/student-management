@@ -34,6 +34,10 @@ gem 'devise'
 gem 'phony'
 gem 'phony_rails'
 gem "cancan"
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'pundit'
+gem 'jquery-ui-rails', '~> 4.2.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
