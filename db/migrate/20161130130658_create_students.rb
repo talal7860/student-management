@@ -6,7 +6,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.integer :student_class
       t.date :dob
       t.string :email
-      t.integer :cnic
+      t.integer :cnic, :limit => 8
       t.text :address
       t.integer :studying_status
       t.text :teacher_remarks

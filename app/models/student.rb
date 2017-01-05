@@ -1,4 +1,7 @@
 class Student < ApplicationRecord
+  has_attached_file :picture, :styles => { :medium =>     "300x300", :thumb => "200x200" }
+  validates_attachment :picture, content_type: { content_type:     ["image/jpg", "image/jpeg", "image/png"] }
+
 	enum studying_status: [ :enrolled, :passed_out, :dismissed]
 	belongs_to :user
 	belongs_to :branch
@@ -17,9 +20,6 @@ class Student < ApplicationRecord
 
   validates_presence_of :address
   validates_presence_of :studying_status
-  validates_presence_of :teacher_remarks
-  validates_presence_of :user_id #this is the parent id
-  validates_presence_of :branch_id
   validates_presence_of :matric_roll_no
   validates_presence_of :matric_marks
 end

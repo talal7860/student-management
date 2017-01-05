@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104081706) do
+ActiveRecord::Schema.define(version: 20170104130052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20170104081706) do
     t.integer  "student_class"
     t.date     "dob"
     t.string   "email"
-    t.integer  "cnic"
+    t.bigint   "cnic"
     t.text     "address"
     t.integer  "studying_status"
     t.text     "teacher_remarks"
@@ -105,8 +105,12 @@ ActiveRecord::Schema.define(version: 20170104081706) do
     t.uuid     "branch_id"
     t.integer  "matric_roll_no"
     t.integer  "matric_marks"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "teach_classes", force: :cascade do |t|
@@ -136,6 +140,10 @@ ActiveRecord::Schema.define(version: 20170104081706) do
     t.integer  "role"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

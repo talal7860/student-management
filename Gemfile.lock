@@ -72,12 +72,10 @@ GEM
     builder (3.2.2)
     byebug (9.0.6)
     cancan (1.6.10)
-    carrierwave (0.11.2)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
-      mimemagic (>= 0.3.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -120,7 +118,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.2.1)
       railties (>= 3.2.16)
-    json (2.0.2)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -144,6 +141,12 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    paperclip (5.0.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
     pg (0.19.0)
     phony (2.15.38)
     phony_rails (0.14.4)
@@ -190,6 +193,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    rb-readline (0.5.3)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.5.4)
@@ -258,7 +262,6 @@ DEPENDENCIES
   activeadmin (~> 1.0.0.pre4)
   byebug
   cancan
-  carrierwave
   coffee-rails (~> 4.2)
   devise
   factory_girl_rails
@@ -268,12 +271,14 @@ DEPENDENCIES
   jquery-ui-rails (~> 4.2.1)
   listen (~> 3.0.5)
   mini_magick
+  paperclip (~> 5.0.0)
   pg
   phony
   phony_rails
   puma (~> 3.0)
   pundit
   rails (~> 5.0.0, >= 5.0.0.1)
+  rb-readline
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)

@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'carrierwave'
+gem 'rb-readline'
 gem 'mini_magick'
 gem 'rspec-rails'
 gem 'devise'
@@ -38,6 +38,7 @@ gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'pundit'
 gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'paperclip', '~> 5.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
