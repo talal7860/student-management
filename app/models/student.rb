@@ -3,18 +3,21 @@ class Student < ApplicationRecord
   validates_attachment :picture, content_type: { content_type:     ["image/jpg", "image/jpeg", "image/png"] }
 
 	enum studying_status: [ :enrolled, :passed_out, :dismissed]
-	belongs_to :user
+  #Role = parent
+	belongs_to :parent, foreign_key: :parent_id, class_name: "User"
 	belongs_to :branch
 	has_many :fees
 	has_many :teach_classes
 	has_many :exams
 	has_many :attendances
 
-  validates_presence_of :name
-  validates_presence_of :picture
-  validates_presence_of :student_class
-  validates_presence_of :dob
-  
+  validates_presence_of :name,
+   :parent_id,
+   :branch_id,
+   :picture,
+   :student_class,
+   :dob
+
   validates_presence_of :cnic
   validates_uniqueness_of :cnic
 

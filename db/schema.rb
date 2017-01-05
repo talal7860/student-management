@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "attendances", force: :cascade do |t|
+  create_table "attendances", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.date     "date"
     t.uuid     "student_id"
     t.uuid     "course_id"
@@ -56,21 +56,21 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "branches", force: :cascade do |t|
+  create_table "branches", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.integer  "branch_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "courses", force: :cascade do |t|
+  create_table "courses", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.integer  "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "exams", force: :cascade do |t|
+  create_table "exams", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid     "course_id"
     t.uuid     "teacher_id"
     t.uuid     "student_id"
@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "fees", force: :cascade do |t|
-    t.string   "student_id"
+  create_table "fees", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "student_id"
     t.integer  "amount"
     t.date     "pay_date"
     t.integer  "scholarship"
@@ -91,18 +91,18 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "students", force: :cascade do |t|
+  create_table "students", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
     t.integer  "student_class"
     t.date     "dob"
     t.string   "email"
-    t.bigint   "cnic"
+    t.string   "cnic"
     t.text     "address"
     t.integer  "studying_status"
     t.text     "teacher_remarks"
-    t.string   "user_id"
-    t.string   "branch_id"
+    t.uuid     "parent_id"
+    t.uuid     "branch_id"
     t.integer  "matric_roll_no"
     t.integer  "matric_marks"
     t.datetime "created_at",           null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.datetime "picture_updated_at"
   end
 
-  create_table "teach_classes", force: :cascade do |t|
+  create_table "teach_classes", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid     "user_id"
     t.uuid     "student_id"
     t.uuid     "course_id"
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -140,10 +140,6 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.integer  "role"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

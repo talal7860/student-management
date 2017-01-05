@@ -1,5 +1,10 @@
 ActiveAdmin.register User do
-permit_params :name, :role, :email, :cnic, :phone
+  collection_action :autocomplete, method: :get do
+    users = User.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
+    render json: users, each_serializer: AutocompleteSerializer, root: false
+  end
+  
+  permit_params :name, :role, :email, :cnic, :phone
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
@@ -12,5 +17,4 @@ permit_params :name, :role, :email, :cnic, :phone
     end
     f.actions
   end
-
 end

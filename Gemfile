@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rb-readline'
 gem 'mini_magick'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'rspec-rails'
 gem 'devise'
 gem 'phony'
