@@ -7,8 +7,8 @@ ActiveAdmin.register Student do
   :cnic,
   :address,
   :studying_status,
-  # :user_id,
-  # :branch_id,
+  :user_id,
+  :branch_id,
   :teacher_remarks,
   :matric_roll_no,
   :matric_marks
@@ -24,8 +24,8 @@ ActiveAdmin.register Student do
       f.input :cnic
       f.input :address
       f.input :studying_status
-      # f.input :user_id
-      # f.input :branch_id
+      f.input :user_id
+      f.input :branch_id
       f.input :matric_roll_no
       f.input :matric_marks
       end

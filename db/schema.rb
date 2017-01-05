@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 20170104130052) do
     t.text     "address"
     t.integer  "studying_status"
     t.text     "teacher_remarks"
-    t.uuid     "user_id"
-    t.uuid     "branch_id"
+    t.string   "user_id"
+    t.string   "branch_id"
     t.integer  "matric_roll_no"
     t.integer  "matric_marks"
     t.datetime "created_at",           null: false
