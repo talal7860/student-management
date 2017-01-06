@@ -30,7 +30,7 @@ ActiveAdmin.register Student do
         class: 'autocomplete',
         id: 'post_user_name',
         name: '',
-        value: f.object.user.try(:name),
+        value: f.object.parent.try(:name),
         data: {
           url: autocomplete_admin_users_path,
           hidden_input: "#student_parent_id"

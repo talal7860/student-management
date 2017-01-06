@@ -16,13 +16,12 @@ class Student < ApplicationRecord
    :branch_id,
    :picture,
    :student_class,
-   :dob
-
-  validates_presence_of :cnic
-  validates_uniqueness_of :cnic
-
-  validates_presence_of :address
-  validates_presence_of :studying_status
-  validates_presence_of :matric_roll_no
-  validates_presence_of :matric_marks
+   :dob,
+   :address,
+   :email,
+   :studying_status,
+   :matric_roll_no,
+   :matric_marks,
+   :cnic
+  validates_uniqueness_of :cnic,:email
 end
