@@ -1,4 +1,8 @@
 ActiveAdmin.register Student do
+  collection_action :autocomplete, method: :get do
+    students = Student.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
+    render json: students, each_serializer: AutocompleteSerializer, root: false
+  end
   permit_params :name,
   :picture,
   :student_class,
@@ -17,7 +21,7 @@ ActiveAdmin.register Student do
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Student Details' do
       f.input :name
-      f.input :picture, :as => :file #, :hint => f.template.image_tag(f.object.image.url(:medium))
+      f.input :picture, :as => :file
       f.input :student_class, as: :select, collection: [1,2,3,4,5,6,7,8]
       f.input :dob, start_year: 1960
       f.input :email
