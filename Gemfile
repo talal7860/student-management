@@ -40,6 +40,7 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'pundit'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'paperclip', '~> 5.0.0'
+gem 'thor', '0.19.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -20,10 +20,12 @@ ActiveAdmin.register Student do
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Student Details' do
+      # f.hidden_field :kinship
       f.input :name
       f.input :picture, :as => :file
       f.input :student_class, as: :select, collection: [1,2,3,4,5,6,7,8]
       f.input :dob, start_year: 1960
+      f.input :kinship, as: :radio 
       f.input :email
       f.input :cnic
       f.input :address

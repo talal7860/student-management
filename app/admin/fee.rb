@@ -1,5 +1,5 @@
 ActiveAdmin.register Fee do
-  permit_params :student_id,:amount,:pay_date,:scholarship,:pay_status
+  permit_params :student_id, :amount, :pay_date, :scholarship, :pay_status
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
