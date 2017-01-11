@@ -23,8 +23,6 @@ ActiveAdmin.register Student do
   :matric_roll_no,
   :matric_marks
 
-  
-
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Student Details' do

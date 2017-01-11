@@ -1,6 +1,6 @@
 class Exam < ApplicationRecord
 	belongs_to :courses
-	belongs_to :users
+	belongs_to :teachers
 	belongs_to :students
 
   validates_presence_of :course_id

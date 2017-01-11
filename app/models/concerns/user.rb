@@ -3,22 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  enum role: [ :parent_, :teacher, :both ]
   has_many :students, foreign_key: :parent_id
-  has_many :teach_classes
-  has_many :courses, through: :teach_classes
-  has_many :exams
+  accepts_nested_attributes_for :students
 
   before_validation :set_password
 
   :email.downcase
 
   validates_uniqueness_of :phone, :numericality => true
-
   validates_uniqueness_of :cnic, :numericality => true
-
-  validates_presence_of :role, :cnic, :phone
+  validates_presence_of :cnic, :phone, :email
   validates_plausible_phone :phone, country_number: '92'
 
   private
@@ -30,5 +24,4 @@ class User < ApplicationRecord
       self.password_confirmation = generated_password
     end
   end
-
 end

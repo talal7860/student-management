@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
   has_many :teach_class
-  has_many :teachers, foreign_key: :user_id, class_name: "User", through: :teach_class
+  has_many :teachers, foreign_key: :teacher_id, class_name: "Teacher", through: :teach_class
 	has_many :exams
 	has_many :attendances
 
