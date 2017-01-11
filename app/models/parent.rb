@@ -4,6 +4,7 @@ class Parent < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :students, foreign_key: :parent_id
+  accepts_nested_attributes_for :students
 
   before_validation :set_password
 

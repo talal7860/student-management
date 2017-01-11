@@ -5,14 +5,13 @@ class Student < ApplicationRecord
 	enum studying_status: [ :enrolled, :passed_out, :dismissed]
   enum gender: [ :male, :female]
 	belongs_to :parent, foreign_key: :parent_id, class_name: "Parent"
-  accepts_nested_attributes_for :parent
+  validates_presence_of :parent
 	belongs_to :branch
 	has_many :fees
 	has_many :teach_classes
 	has_many :exams
 	has_many :attendances
 
-  attr_accessor :kinship
   validates_presence_of :name,
    :parent_id,
    :branch_id,

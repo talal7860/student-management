@@ -3,6 +3,12 @@ ActiveAdmin.register Student do
     students = Student.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
     render json: students, each_serializer: AutocompleteSerializer, root: false
   end
+
+  controller do
+    def permitted_params
+      permit_params :name, :email, :cnic, :phone
+    end
+  end
   permit_params :name,
   :picture,
   :student_class,
@@ -17,32 +23,28 @@ ActiveAdmin.register Student do
   :matric_roll_no,
   :matric_marks
 
+  
+
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Student Details' do
-      # f.hidden_field :kinship
       f.input :name
       f.input :picture, :as => :file
+    end
+    f.inputs '', for:[:parent, f.object.parent] do |s|
+        s.input :name, label: "Father's name"
+        s.input :email, label: "Father's email"
+        s.input :cnic, label: "Father's cnic"
+        s.input :phone, label: "Father's phone no."
+        s.actions
+    end
+    f.inputs '' do
       f.input :student_class, as: :select, collection: [1,2,3,4,5,6,7,8]
       f.input :dob, start_year: 1960
-      f.input :kinship, as: :radio 
       f.input :email
       f.input :cnic
       f.input :address
       f.input :studying_status
-      f.input :parent,
-      as: :string,
-      input_html: {
-        class: 'autocomplete',
-        id: 'post_user_name',
-        name: '',
-        value: f.object.parent.try(:name),
-        data: {
-          url: autocomplete_admin_users_path,
-          hidden_input: "#student_parent_id"
-        },
-      }
-      f.input :parent_id, as: :hidden
       f.input :branch,
       as: :string,
       input_html: {
