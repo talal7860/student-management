@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20170109100615) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "parents", force: :cascade do |t|
+  create_table "parents", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -126,12 +126,12 @@ ActiveRecord::Schema.define(version: 20170109100615) do
     t.uuid     "branch_id"
     t.integer  "matric_roll_no"
     t.integer  "matric_marks"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "teach_classes", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(version: 20170109100615) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "teachers", force: :cascade do |t|
+  create_table "teachers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

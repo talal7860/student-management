@@ -15,6 +15,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.uuid :branch_id
       t.integer :matric_roll_no
       t.integer :matric_marks
+      t.attachment :picture
 
       t.timestamps
     end

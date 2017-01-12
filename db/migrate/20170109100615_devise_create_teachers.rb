@@ -1,6 +1,6 @@
 class DeviseCreateTeachers < ActiveRecord::Migration[5.0]
   def change
-    create_table :teachers do |t|
+    create_table :teachers, id: :uuid do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

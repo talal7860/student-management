@@ -1,6 +1,6 @@
 class DeviseCreateParents < ActiveRecord::Migration[5.0]
   def change
-    create_table :parents do |t|
+    create_table :parents, id: :uuid do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

@@ -6,13 +6,13 @@ class Parent < ApplicationRecord
   has_many :students, foreign_key: :parent_id
   accepts_nested_attributes_for :students
 
-  before_validation :set_password
+  before_validation :set_password,
 
   :email.downcase
 
   validates_uniqueness_of :phone, :numericality => true
   validates_uniqueness_of :cnic, :numericality => true
-  validates_presence_of :cnic, :phone, :email
+  validates_presence_of :name, :cnic, :phone, :email
   validates_plausible_phone :phone, country_number: '92'
 
   private
