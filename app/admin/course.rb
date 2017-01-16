@@ -10,8 +10,8 @@ ActiveAdmin.register Course do
   end
   index do
     selectable_column
-    id_column
-    column :created_at
+    column :name
+    column :year
     actions
   end
   show do

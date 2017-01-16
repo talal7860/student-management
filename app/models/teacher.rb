@@ -1,6 +1,8 @@
 class Teacher < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_attached_file :picture, :styles => { :medium =>"300x300", :thumb => "200x200" }
+  validates_attachment :picture, content_type: { content_type:["image/jpg", "image/jpeg", "image/png"] }
+  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :teach_classes

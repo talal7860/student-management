@@ -4,22 +4,6 @@ ActiveAdmin.register Student do
     render json: students, each_serializer: AutocompleteSerializer, root: false
   end
 
-  # controller do
-
-  #   def student_params
-  #     params[:student]
-  #   end
-
-  #   def parent_params
-  #     student_params.require(:parent).permit(:id, :name, :email, :cnic, :phone)
-  #   end
-
-  #   def create
-  #     byebug
-  #     params[:parent_id] = Parent.find_or_create_by(parent_params).try(:id)
-  #   end
-
-  # end
   permit_params :name,
   :picture,
   :student_class,
@@ -43,13 +27,13 @@ ActiveAdmin.register Student do
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Student Details' do
       f.input :name
-      f.input :picture, :as => :file
+      f.input :picture, as: :file
     end
-    f.inputs 'Parent Details' do
-      f.input :parent_name, label: "Name"
-      f.input :parent_email, label: "Email"
-      f.input :parent_cnic, label: "Cnic"
-      f.input :parent_phone, label: "Phone no."
+    f.inputs '' do
+      f.input :parent_name, label: "Father's name"
+      f.input :parent_email, label: "Father's email"
+      f.input :parent_cnic, label: "Father's cnic"
+      f.input :parent_phone, label: "Father's phone no."
     end
     f.inputs '' do
       f.input :gender
