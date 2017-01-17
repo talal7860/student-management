@@ -1,7 +1,8 @@
+# Exam model
 class Exam < ApplicationRecord
-	belongs_to :courses
-	belongs_to :teachers
-	belongs_to :students
+  belongs_to :courses
+  belongs_to :teachers
+  belongs_to :students
 
   validates_presence_of :course_id
   validates_presence_of :teacher_id
