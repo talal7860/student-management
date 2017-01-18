@@ -47,7 +47,7 @@ class Student < ApplicationRecord
         cnic: parent_cnic,
         email: parent_email,
         phone: parent_phone
-    )
+      )
     else
       self.parent.update!(
         name: parent_name,
@@ -55,8 +55,8 @@ class Student < ApplicationRecord
         email: parent_email,
         phone: parent_phone
       )
+    end
   end
-end
 
   def parent_id_not_set
     self.parent_id.nil?

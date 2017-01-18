@@ -1,3 +1,4 @@
+# db
 class AddAttachmentPictureToTeachers < ActiveRecord::Migration
   def self.up
     change_table :teachers do |t|
