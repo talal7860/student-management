@@ -8,6 +8,8 @@ class Parent < ApplicationRecord
   accepts_nested_attributes_for :students
 
   before_validation :set_password
+  before_create :generate_reset_password_token
+  after_create :send_welcome_mail
 
   :email.downcase
 
@@ -23,5 +25,16 @@ class Parent < ApplicationRecord
     generated_password = Devise.friendly_token.first(8)
     self.password = generated_password
     self.password_confirmation = generated_password
+  end
+
+  def generate_reset_password_token
+    enc = Devise.token_generator.generate(self.class, :reset_password_token)
+    self.reset_password_token  = enc[1]
+    @token = enc[0]
+    self.reset_password_sent_at = Time.now.utc
+  end
+
+  def send_welcome_mail
+    UserMailer.welcome_password_mail(self, @token).deliver
   end
 end

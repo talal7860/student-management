@@ -4,6 +4,10 @@ ActiveAdmin.register Parent do
     render json: parent, each_serializer: AutocompleteSerializer, root: false
   end
 
+  controller do
+    # before_action :authenticate_parent!
+  end
+
   index do
     selectable_column
     column :name

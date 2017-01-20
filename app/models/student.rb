@@ -42,11 +42,11 @@ class Student < ApplicationRecord
     return unless parent_cnic.present?
     self.parent = Parent.where('cnic = ? or email = ?', parent_cnic, parent_email).first
     if self.parent.nil?
-      self.parent = Parent.create!(
+      self.parent = Parent.new(
         name: parent_name,
         cnic: parent_cnic,
         email: parent_email,
-        phone: parent_phone
+        phone: parent_phone,
       )
     else
       self.parent.update!(
