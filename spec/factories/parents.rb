@@ -3,7 +3,7 @@ FactoryGirl.define do
     name 'Test User'
     email 'test@test.com'
     phone '+923234035166'
-    cnic '35202-0194587-3'
+    cnic '1234567890'
     password 'password'
     password_confirmation 'password'
   end

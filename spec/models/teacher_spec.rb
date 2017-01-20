@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'rack/test'
 RSpec.describe Teacher, type: :model do
   describe 'Validations' do
     it { should validate_presence_of :email }
@@ -7,7 +8,7 @@ RSpec.describe Teacher, type: :model do
       expect(teacher.encrypted_password).not_to be_nil
     end
     it { should have_many :courses }
-    it { should validate_uniqueness_of :email.case_insensitive }
+    it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_uniqueness_of :phone }
     it { should validate_uniqueness_of :cnic }
     it { should validate_presence_of :cnic }
