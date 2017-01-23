@@ -1,8 +1,9 @@
 # Exam model
 class Exam < ApplicationRecord
-  belongs_to :courses
-  belongs_to :teachers
-  belongs_to :students
+  enum exam_type: [:mid_term, :final, :class_test]
+  belongs_to :course
+  belongs_to :teacher
+  belongs_to :student
 
   validates_presence_of :course_id
   validates_presence_of :teacher_id

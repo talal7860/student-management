@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20170116133443) do
   create_table "students", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
-    t.integer  "student_class"
+    t.string   "student_class"
     t.date     "dob"
     t.integer  "gender"
     t.string   "email"

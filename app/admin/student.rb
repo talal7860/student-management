@@ -76,7 +76,7 @@ ActiveAdmin.register Student do
     end
     f.inputs '' do
       f.input :gender
-      f.input :student_class, as: :select, collection: [1, 2, 3, 4, 5, 6, 7, 8]
+      f.input :student_class, as: :select, collection: [1, 2, 3, 4, 5, 6, 7, 8, 'Hifz']
       f.input :dob, start_year: 1960
       f.input :email
       f.input :cnic

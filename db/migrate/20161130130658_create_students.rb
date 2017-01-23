@@ -4,7 +4,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
     create_table :students, id: :uuid do |t|
       t.string :name
       t.string :picture
-      t.integer :student_class
+      t.string :student_class
       t.date :dob
       t.integer :gender
       t.string :email
