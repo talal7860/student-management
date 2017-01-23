@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Fee, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Validates' do
+    it { should validate_presence_of :student_id }
+    it { should validate_presence_of :amount }
+    it { should validate_presence_of :pay_date }
+    it { should validate_presence_of :pay_status }
+  end
 end

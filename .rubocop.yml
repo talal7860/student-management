@@ -1,0 +1,14 @@
+Metrics/LineLength:
+  # This will disable the rule completely, regardless what other options you put
+  Enabled: false
+  # If you want the rule not to apply to a specific folder/file
+  Exclude:
+    - 'db/schema.rb'
+Metrics/BlockLength:
+  Enabled: false
+AllCops:
+  Exclude:
+    - 'db/*'
+
+Metrics/MethodLength:
+  Enabled: false

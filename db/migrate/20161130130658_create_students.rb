@@ -1,12 +1,14 @@
+# db
 class CreateStudents < ActiveRecord::Migration[5.0]
   def change
-    create_table :students do |t|
+    create_table :students, id: :uuid do |t|
       t.string :name
       t.string :picture
-      t.integer :class
+      t.string :student_class
       t.date :dob
+      t.integer :gender
       t.string :email
-      t.integer :cnic
+      t.string :cnic
       t.text :address
       t.integer :studying_status
       t.text :teacher_remarks
@@ -14,6 +16,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.uuid :branch_id
       t.integer :matric_roll_no
       t.integer :matric_marks
+      t.attachment :picture
 
       t.timestamps
     end
