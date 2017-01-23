@@ -2,6 +2,6 @@
 class ParentsController < AppController
   def index
     @students = current_user.students
-    @students = @students.paginate(:page => params[:page], :per_page => 30)
+    @students = @students.page(params[@students]).per(10)
   end
 end
