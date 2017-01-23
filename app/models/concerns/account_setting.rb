@@ -1,10 +1,10 @@
 require 'active_support/concern'
-
+# account setting concern
 module AccountSetting
   extend ActiveSupport::Concern
   included do
     devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+           :recoverable, :rememberable, :trackable, :validatable
 
     before_validation :set_password, :downcase_email
     before_create :generate_reset_password_token
@@ -28,7 +28,7 @@ module AccountSetting
 
   def generate_reset_password_token
     enc = Devise.token_generator.generate(self.class, :reset_password_token)
-    self.reset_password_token  = enc[1]
+    self.reset_password_token = enc[1]
     @token = enc[0]
     self.reset_password_sent_at = Time.now.utc
   end

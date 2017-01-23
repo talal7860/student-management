@@ -44,7 +44,7 @@ class Student < ApplicationRecord
         name: parent_name,
         cnic: parent_cnic,
         email: parent_email,
-        phone: parent_phone,
+        phone: parent_phone
       )
     else
       self.parent.update!(

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :student do
     name 'usamaman'
-    picture_file_name (Rails.root + '/spec/fixtures/images/rails.png')
+    picture_file_name(Rails.root + '/spec/fixtures/images/rails.png')
     student_class '2'
     dob '7/11/1999'
     gender '1'

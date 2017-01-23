@@ -1,5 +1,5 @@
 ActiveAdmin.register Exam do
-collection_action :autocomplete, method: :get do
+  collection_action :autocomplete, method: :get do
     exam = Exam.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
     render json: exam, each_serializer: AutocompleteSerializer, root: false
   end
@@ -37,7 +37,8 @@ collection_action :autocomplete, method: :get do
     f.inputs 'Exam Details' do
       f.input :course,
               as: :string,
-              input_html: {
+              input_html:
+              {
                 class: 'autocomplete',
                 id: 'exam_course_name',
                 name: '',
@@ -50,7 +51,8 @@ collection_action :autocomplete, method: :get do
       f.input :course_id, as: :hidden
       f.input :teacher,
               as: :string,
-              input_html: {
+              input_html:
+              {
                 class: 'autocomplete',
                 id: 'exam_teacher_name',
                 name: '',
@@ -63,7 +65,8 @@ collection_action :autocomplete, method: :get do
       f.input :teacher_id, as: :hidden
       f.input :student,
               as: :string,
-              input_html: {
+              input_html:
+              {
                 class: 'autocomplete',
                 id: 'exam_student_name',
                 name: '',

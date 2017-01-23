@@ -28,8 +28,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'cancan'
 gem 'devise'
+gem 'haml-rails', '~> 0.9'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'mini_magick'
@@ -39,7 +41,9 @@ gem 'phony_rails'
 gem 'pundit'
 gem 'rb-readline'
 gem 'rspec-rails'
+gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'thor', '0.19.1'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
