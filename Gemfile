@@ -43,7 +43,6 @@ gem 'rb-readline'
 gem 'rspec-rails'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'thor', '0.19.1'
-gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
