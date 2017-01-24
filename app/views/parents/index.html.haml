@@ -5,22 +5,19 @@
       table, th, td{
        text-align: center;
       }
+      = link_to image_tag("@students.picture.url", height:'100px'), "@students.picture.url", data:{ title:'title1', footer:'footer1', toggle:'lightbox', gallery:'multiimages' }
 
 
     %table.table.table-bordered.table-responsive.table-striped.table-hover
       %tr
-        %th Picture
         %th Name
         %th Email
         %th Class
         %th Studying Status
         %th Branch Name
-        %th Matric roll number
-        %th Matric marks
+        %th Actions
       - @students.each do |student|
         %tr
-          %td 
-            = image_tag student.picture.url(:thumb)
           %td 
             = student.name
           %td
@@ -32,7 +29,5 @@
           %td
             = student.branch.name
           %td
-            = student.matric_roll_no
-          %td
-            = student.matric_marks
+            = link_to "Show", student
     %a#menu-toggle.btn.btn-default{:href => "#menu-toggle"} Toggle Menu
