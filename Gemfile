@@ -43,6 +43,7 @@ gem 'rb-readline'
 gem 'rspec-rails'
 gem 'sendgrid-ruby'
 gem 'sprockets-rails', require: 'sprockets/railtie'
+gem 'tether-rails'
 gem 'thor', '0.19.1'
 
 # Use Capistrano for deployment
