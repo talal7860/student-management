@@ -41,6 +41,7 @@ gem 'phony_rails'
 gem 'pundit'
 gem 'rb-readline'
 gem 'rspec-rails'
+gem 'sendgrid-ruby'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'thor', '0.19.1'
 

@@ -16,3 +16,4 @@
 # Ignore Byebug command history file.
 .byebug_history
 .rubocop.yml
+sendgrid.env
