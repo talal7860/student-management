@@ -8,6 +8,4 @@ class TeachClass < ApplicationRecord
   validates_presence_of :course
   validates_presence_of :branch
 
-  def student
-  end
 end

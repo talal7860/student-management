@@ -41,7 +41,7 @@ ActiveAdmin.register TeachClass do
                 }
               }
       f.input :teacher_id, as: :hidden
-      f.input :student_year, as: :select, collection: [1, 2, 3, 4, 5, 6, 7, 8]
+      f.input :student_year, as: :select, collection: [1, 2, 3, 4, 5, 6, 7, 8, 'Hifz']
       f.input :course,
               as: :string,
               input_html: {

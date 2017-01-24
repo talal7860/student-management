@@ -1,9 +1,38 @@
 .row
   .col-lg-12
     %h1 Students
-    %p This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.
-    %p
-      Make sure to keep all page content within the
-      = succeed "." do
-        %code #page-content-wrapper
+    :css
+      table, th, td{
+       text-align: center;
+      }
+
+
+    %table.table.table-bordered.table-responsive.table-striped.table-hover
+      %tr
+        %th Picture
+        %th Name
+        %th Email
+        %th Class
+        %th Studying Status
+        %th Branch Name
+        %th Matric roll number
+        %th Matric marks
+      - @students.each do |student|
+        %tr
+          %td 
+            = image_tag student.picture.url(:thumb)
+          %td 
+            = student.name
+          %td
+            = student.email
+          %td
+            = student.student_class
+          %td
+            = student.studying_status
+          %td
+            = student.branch.name
+          %td
+            = student.matric_roll_no
+          %td
+            = student.matric_marks
     %a#menu-toggle.btn.btn-default{:href => "#menu-toggle"} Toggle Menu
