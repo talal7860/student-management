@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = 'student-management-system_#{Rails.env}'
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = {host: 'herokuapp.com'}
+  config.action_mailer.default_url_options = {host: 'baitunnoor.herokuapp.com'}
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings =
   # {
@@ -67,7 +67,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
-    :domain => 'heroku.com',
+    :domain => 'herokuapp.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
