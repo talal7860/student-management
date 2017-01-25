@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
-//= require lightbox-bootstrap
 $(document).ready(function () {
 	$("#menu-toggle").click(function(e) {
 		e.preventDefault();

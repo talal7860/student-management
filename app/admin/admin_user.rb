@@ -1,4 +1,7 @@
 ActiveAdmin.register AdminUser do
+  ActiveAdmin.setup do |config|
+    config.comments = false
+  end
   permit_params :email, :password, :password_confirmation
 
   index do

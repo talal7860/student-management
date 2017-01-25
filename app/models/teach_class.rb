@@ -7,5 +7,4 @@ class TeachClass < ApplicationRecord
   validates_presence_of :teacher
   validates_presence_of :course
   validates_presence_of :branch
-
 end

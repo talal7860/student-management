@@ -9,6 +9,6 @@ Metrics/BlockLength:
 AllCops:
   Exclude:
     - 'db/*'
-
+    - 'client/**/*'
 Metrics/MethodLength:
   Enabled: false

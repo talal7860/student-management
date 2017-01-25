@@ -20,7 +20,7 @@ module AccountSetting
   private
 
   def set_password
-    # return false if self.password
+    return false if self.password or self.id.present?
     generated_password = Devise.friendly_token.first(8)
     self.password = generated_password
     self.password_confirmation = generated_password
