@@ -2,6 +2,9 @@
 class DeviseCreateTeachers < ActiveRecord::Migration[5.0]
   def change
     create_table :teachers, id: :uuid do |t|
+
+      t.string :provider, null: false, default: 'email'
+      t.string :uid, null: false, default: ''
       ## Database authenticatable
       t.string :email,              null: false, default: ''
       t.string :encrypted_password, null: false, default: ''
@@ -25,6 +28,8 @@ class DeviseCreateTeachers < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :cnic
       t.string :phone
+
+      t.text :tokens
 
       t.timestamps null: false
     end
