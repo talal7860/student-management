@@ -1,4 +1,5 @@
 ActiveAdmin.register Branch do
+  config.comments = false
   collection_action :autocomplete, method: :get do
     branch = Branch.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
     render json: branch, each_serializer: AutocompleteSerializer, root: false

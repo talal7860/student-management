@@ -1,0 +1,23 @@
+form.form-horizontal(ng-submit="password_reset.resetPassword()" method="post" ng-if="password_reset.isTokenValid")
+  fieldset
+    // Form Name
+    legend Password reset
+    // Password input
+    .form-group
+      label.col-md-4.control-label(for='password') password
+      .col-md-4
+        input#password.form-control.input-md(ng-model="password_reset.params.password" name='password', type='password', placeholder='Enter the password', required='')
+        span.help-block minimum 8 characters
+    // Password input
+    .form-group
+      label.col-md-4.control-label(for='re-enter password') re-enter password
+      .col-md-4
+        input.form-control.input-md(ng-model="password_reset.params.password_confirmation" id='re-enter password', name='re-enter password', type='password', placeholder='re-enter the password', required='')
+    .form-group
+      label.col-md-4.control-label(for='button')
+      .col-md-4
+        button#button.btn.btn-primary(name='button' type='submit') Submit
+.alert.alert-danger(ng-if="password_reset.isTokenValid == false")
+  span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+  span.sr-only Error:
+  | Invalid Reset Token

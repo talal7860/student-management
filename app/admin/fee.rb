@@ -1,4 +1,5 @@
 ActiveAdmin.register Fee do
+  config.comments = false
   permit_params :student_id, :amount, :pay_date, :scholarship, :pay_status
 
   index do

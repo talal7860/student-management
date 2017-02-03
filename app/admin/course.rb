@@ -1,4 +1,5 @@
 ActiveAdmin.register Course do
+  config.comments = false
   collection_action :autocomplete, method: :get do
     course = Course.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
     render json: course, each_serializer: AutocompleteSerializer, root: false

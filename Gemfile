@@ -32,6 +32,7 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'cancan'
 gem 'devise'
 gem 'devise_token_auth'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'haml-rails', '~> 0.9'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'jquery-ui-rails', '~> 4.2.1'

@@ -23,7 +23,11 @@ function browserSyncInit(baseDir, browser) {
 
   var server = {
     baseDir: baseDir,
-    routes: routes
+    routes: routes,
+    middleware: [
+      proxyMiddleware('/api', {target: 'http://localhost:3001', changeOrigin: true}),
+      proxyMiddleware('/auth', {target: 'http://localhost:3001', changeOrigin: true}),
+    ]
   };
 
   /*

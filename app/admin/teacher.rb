@@ -1,4 +1,5 @@
 ActiveAdmin.register Teacher do
+  config.comments = false
   collection_action :autocomplete, method: :get do
     teacher = Teacher.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
     render json: teacher, each_serializer: AutocompleteSerializer, root: false

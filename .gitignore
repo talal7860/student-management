@@ -17,3 +17,4 @@
 .byebug_history
 .rubocop.yml
 sendgrid.env
+.env

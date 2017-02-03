@@ -1,4 +1,5 @@
 ActiveAdmin.register Exam do
+  config.comments = false
   collection_action :autocomplete, method: :get do
     exam = Exam.where('LOWER(name) ILIKE ?', "#{params[:term]}%")
     render json: exam, each_serializer: AutocompleteSerializer, root: false
