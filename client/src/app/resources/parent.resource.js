@@ -19,8 +19,12 @@ export function ParentResourceFactory($resource)
             action : 'reset_password'
           }
         },
-        'validateResetPasswordToken' : { method: 'POST', params: {
+        'validateParentResetPasswordToken' : { method: 'POST', params: {
             action : 'validate_reset_password_token'
+          }
+        },
+        'loginAction' : { method: 'POST', params: {
+            action : 'login_action'
           }
         }
       }

@@ -1,18 +1,23 @@
 form.form-horizontal
   fieldset
     // Form Name
-    legend Form Name
-    // Password input
-    .form-group
-      label.col-md-4.control-label(for='password') Password
-      .col-md-4
-        input#password.form-control.input-md(name='password', type='password', placeholder='enter your password', required='')
+    legend Parent login
     // Text input
     .form-group
       label.col-md-4.control-label(for='email') Email
       .col-md-4
         input#email.form-control.input-md(name='email', type='text', placeholder='enter your email', required='')
+      // Password input
+    .form-group
+      label.col-md-4.control-label(for='password') Password
+      .col-md-4
+        input#password.form-control.input-md(name='password', type='password', placeholder='enter your password', required='')
     // Button
     .form-group
       label.col-md-4.control-label(for='login')
       .col-md-4
+        button#singlebutton.btn.btn-primary(name='singlebutton') Login
+    .form-group
+      label.col-md-4.control-label(for='forgotpassword')
+      .col-md-4
+        a(href='forgot_password') Forgot password?

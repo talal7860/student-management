@@ -7,8 +7,8 @@ module AccountSetting
            :recoverable, :rememberable, :trackable, :validatable
 
     before_validation :set_password, :downcase_email
-    after_create :generate_reset_password_token
-    after_create :send_welcome_mail, if: :not_test_env
+    before_create :generate_reset_password_token
+    after_create :send_welcome_mail
 
     validates_uniqueness_of :phone, numericality: :true
     validates_uniqueness_of :cnic, numericality: :true
@@ -30,16 +30,11 @@ module AccountSetting
     raw, enc = Devise.token_generator.generate(self.class, :reset_password_token)
     self.reset_password_token   = enc
     self.reset_password_sent_at = Time.now.utc
-    save(validate: false)
     @token = raw
   end
 
   def send_welcome_mail
     UserMailer.welcome_password_mail(self, @token).deliver
-  end
-
-  def not_test_env
-    !Rails.env.test?
   end
 
   def downcase_email

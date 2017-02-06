@@ -19,19 +19,18 @@ RSpec.describe Student, type: :model do
     it { should validate_presence_of :matric_marks }
     it { should belong_to :parent }
   end
-  # describe 'parent creation' do
-  #   it 'should create parent if parent id is not given' do
-  #     user = FactoryGirl.build(:parent)
-  #     user.cnic = 'asdf'
-  #     user.name = 'blan'
-  #     user.email = 'blan@blan.com'
-  #     user.phone = '+923223223222'
-  #     user.save
-  #     expect(user.id).not_to be_nil
-  #   end
-  #   it 'should add parent id to student if it already exists or it is newly created' do
-  #     student = FactoryGirl.create(:student)
-  #     expect(student.parent_id).not_to be_nil
-  #   end
-  # end
+  describe 'parent creation' do
+    it 'should set a reset password token for a parent' do
+      student = FactoryGirl.create(:student)
+      student.save
+      expect(student.parent.reset_password_token).not_to be_nil
+    end
+    it 'should send a reset password email to parent' do
+      expect{ FactoryGirl.create(:student) }.to change { ActionMailer::Base.deliveries.count }.by(1)
+    end
+    it 'should add parent id to student if it already exists or it is newly created' do
+      student = FactoryGirl.create(:student)
+      expect(student.parent_id).not_to be_nil
+    end
+  end
 end

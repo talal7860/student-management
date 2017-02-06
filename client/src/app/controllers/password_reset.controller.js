@@ -13,7 +13,9 @@ export class PasswordResetController {
   }
 
   validateToken() {
-    this.Parent.validateResetPasswordToken({reset_password_token: this.params.reset_password_token}).$promise
+    this.Parent.validateParentResetPasswordToken({
+      reset_password_token: this.params.reset_password_token
+    }).$promise
     .then(() => {
       this.isTokenValid = true;
     })

@@ -21,7 +21,7 @@ module Api
       if Parent.find_by_token(reset_password_params[:reset_password_token])
         render json: { status: 'success', message: 'Reset token is valid' }
       else
-        render json: { status: 'error', message: 'Invalid reset token' }
+        render json: { status: 'error', message: 'Invalid reset token' }, status: 403
       end
     end
 

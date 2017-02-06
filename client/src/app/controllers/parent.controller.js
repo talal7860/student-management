@@ -1,17 +1,21 @@
 export class ParentController {
-  constructor (action) {
+  constructor (action, toastr) {
     'ngInject';
+    this.toastr = toastr;
+    this.login_params = {
+      email: '',
+      password: ''
+    }
     switch(action) {
       case 'login':
-        self.loginAction();
+        this.loginAction();
       break;
     }
   }
 
   loginAction() {
-    this.login_params = {
-      email: '',
-      password: ''
+    if (this.login_params.email == "usama.lhr@gmail.com") {
+      this.toastr.success('annay wa')
     }
   }
 }

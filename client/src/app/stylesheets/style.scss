@@ -16,6 +16,11 @@
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    a {
+      &hover {
+        color: #23527c;
+      } 
+    }
 }
 
 #wrapper.toggled {
@@ -101,7 +106,7 @@
 }
 
 @media(min-width:768px) {
-    #wrapper {
+    #wrapper.toggled {
         padding-left: 250px;
     }
 
@@ -109,7 +114,7 @@
         padding-left: 0;
     }
 
-    #sidebar-wrapper {
+    #sidebar-wrapper.toggled {
         width: 250px;
     }
 
