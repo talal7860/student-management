@@ -19,12 +19,22 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller: 'PasswordResetController',
       controllerAs: 'password_reset'
     })
-    .state('login_parent', {
+    .state('parent', {
       parent: 'base',
-      url: '/login-parent',
-      templateUrl: 'app/views/login/login_parent.html',
-      controller: 'ParentLoginController',
-      controllerAs: 'parent_login'
+      abstract: true,
+      template: '<ui-view />'
+    })
+    .state('parent.login', {
+      parent: 'parent',
+      url: '/parent/login',
+      controller: 'ParentController',
+      controllerAs: 'parent',
+      templateUrl: 'app/views/parent/login.html',
+      resolve: {
+        action: () => {
+          return 'login';
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/');

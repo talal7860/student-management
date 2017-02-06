@@ -14,10 +14,10 @@ export class PasswordResetController {
 
   validateToken() {
     this.Parent.validateResetPasswordToken({reset_password_token: this.params.reset_password_token}).$promise
-    .then((res) => {
+    .then(() => {
       this.isTokenValid = true;
     })
-    .catch((res) => {
+    .catch(() => {
       this.isTokenValid = false;
     });
   }
@@ -31,9 +31,9 @@ export class PasswordResetController {
     }
     else {
       this.Parent.resetPassword(this.params).$promise
-      .then((res) => {
+      .then(() => {
       })
-      .catch((res) => {
+      .catch(() => {
       });
   
     }

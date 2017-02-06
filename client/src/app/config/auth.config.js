@@ -1,17 +1,17 @@
+let $window = window;
 export function authConfig ($authProvider) {
   'ngInject';
   $authProvider.configure({
     apiUrl:                  '',
-    //apiUrl:                  'http://localhost:3000',
     tokenValidationPath:     '/auth/validate_token',
     signOutUrl:              '/auth/sign_out',
     emailRegistrationPath:   '/auth',
     accountUpdatePath:       '/auth',
     accountDeletePath:       '/auth',
-    confirmationSuccessUrl:  window.location.href,
+    confirmationSuccessUrl:  $window.location.href,
     passwordResetPath:       '/auth/reset-password',
     passwordUpdatePath:      '/auth/password',
-    passwordResetSuccessUrl: window.location.href,
+    passwordResetSuccessUrl: $window.location.href,
     emailSignInPath:         '/auth/sign_in',
     storage:                 'cookies',
     forceValidateToken:      false,
@@ -33,7 +33,7 @@ export function authConfig ($authProvider) {
       secure: false
     },
     createPopup: function(url) {
-      return window.open(url, '_blank', 'closebuttoncaption=Cancel');
+      return $window.open(url, '_blank', 'closebuttoncaption=Cancel');
     },
     parseExpiry: function(headers) {
       // convert from UTC ruby (seconds) to UTC js (milliseconds)

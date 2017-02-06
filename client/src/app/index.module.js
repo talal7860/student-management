@@ -6,12 +6,9 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './controllers/main.controller';
 import { PasswordResetController } from './controllers/password_reset.controller';
-import { ParentLoginController } from './controllers/password_reset.controller';
+import { ParentController } from './controllers/parent.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
-
-import { NavbarDirective } from '../app/components/navbar/navbar.directive';
-import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
 import { ParentResourceFactory } from './resources/parent.resource';
 
@@ -26,4 +23,5 @@ angular.module('client', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
   .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
   .controller('PasswordResetController', PasswordResetController)
+  .controller('ParentController', ParentController)
   .factory('Parent', ParentResourceFactory)
