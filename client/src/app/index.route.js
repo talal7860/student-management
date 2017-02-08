@@ -10,7 +10,18 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'app/views/main/main.html',
       controller: 'MainController',
-      controllerAs: 'main'
+      controllerAs: 'main',
+      resolve: {
+        students: ((Parent, $auth, $state) => {
+          $auth.validateUser()
+          .then(() => {
+            $state.go('parent.students');
+          })
+          .catch(() => {
+            $state.go('parent.login');
+          })
+        })
+      }
     })
     .state('parent', {
       parent: 'base',
@@ -29,7 +40,17 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/parent/login',
       controller: 'ParentController',
       controllerAs: 'parent',
-      templateUrl: 'app/views/parent/login.html'
+      templateUrl: 'app/views/parent/login.html',
+      resolve: {
+        students: ((Parent, $auth, $state) => {
+          $auth.validateUser()
+          .then(() => {
+            $state.go('parent.students');
+          })
+          .catch(() => {
+          })
+        })
+      }
     })
     .state('parent.students',{
       parent: 'parent',
@@ -39,9 +60,9 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'parent',
       resolve: {
         students: ((Parent, $auth, $state) => {
-          $auth.validateUser()
+          return $auth.validateUser()
           .then(() => {
-            return Parent.students();
+            return Parent.students().$promise
           })
           .catch(() => {
             $state.go('parent.login');

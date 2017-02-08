@@ -1,5 +1,5 @@
 h1 Baitunnoor
-#wrapper
+#wrapper(ng-class="{'toggled': isLoggedIn}")
   .sidebar
     ng-include(src="'app/views/layout/_sidebar.html'" ng-if="showSideBar")
   // Page Content

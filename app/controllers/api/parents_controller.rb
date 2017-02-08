@@ -3,11 +3,6 @@ module Api
   class ParentsController < ApplicationController
     before_filter :authenticate_parent!, except: [:reset_password, :validate_reset_password_token]
 
-    def index
-      @students = current_parent.students
-      render json: @students.page(params[@students]).per(10)
-    end
-
     def reset_password
       parent = Parent.reset_password_by_token(reset_password_params)
       unless parent.errors.any?

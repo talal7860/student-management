@@ -1,5 +1,5 @@
 export class PasswordResetController {
-  constructor (toastr, $auth, Parent, $location) {
+  constructor (toastr, $auth, Parent, $location, $rootScope) {
     'ngInject';
 
     this.toastr = toastr;
@@ -9,6 +9,9 @@ export class PasswordResetController {
       password_confirmation: '',
       reset_password_token: $location.search()["password_reset_token"]
     };
+    if ($auth.user) {
+      $rootScope.showSideBar = false;
+    }
     this.validateToken();
   }
 

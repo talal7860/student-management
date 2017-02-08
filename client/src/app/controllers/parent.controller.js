@@ -1,5 +1,5 @@
 export class ParentController {
-  constructor (toastr, $auth, Parent, $window) {
+  constructor (toastr, $auth, Parent, $window, students, $rootScope) {
     'ngInject';
     this.toastr = toastr;
     this.Parent = Parent;
@@ -9,6 +9,12 @@ export class ParentController {
       email: '',
       password: ''
     }
+    $auth.validateUser()
+    .then(() => {
+        $rootScope.showSideBar = true;
+        $rootScope.isLoggedIn = true;
+    });
+    this.students = students;
   }
 
   loginAction() {
