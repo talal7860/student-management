@@ -1,21 +1,27 @@
 export class ParentController {
-  constructor (action, toastr) {
+  constructor (toastr, $auth, Parent, $window) {
     'ngInject';
     this.toastr = toastr;
+    this.Parent = Parent;
+    this.auth = $auth;
+    this.$window = $window;
     this.login_params = {
       email: '',
       password: ''
     }
-    switch(action) {
-      case 'login':
-        this.loginAction();
-      break;
-    }
   }
 
   loginAction() {
-    if (this.login_params.email == "usama.lhr@gmail.com") {
-      this.toastr.success('annay wa')
-    }
+    let self = this;
+    this.auth.submitLogin(
+      this.login_params
+    )
+    .then((resp) => {
+      self.toastr.success(resp.email,'Welcome ');
+      self.$window.location.href = '#/parent/students';
+    })
+    .catch((resp) => {
+      self.toastr.error(resp);
+    });
   }
 }

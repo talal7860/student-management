@@ -17,8 +17,8 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       abstract: true,
       template: '<ui-view />'
     })
-    .state('base.password_reset', {
-      parent: 'base',
+    .state('parent.password_reset', {
+      parent: 'parent',
       url: '/parent/password-reset',
       templateUrl: 'app/views/parent/password_reset.html',
       controller: 'PasswordResetController',
@@ -28,14 +28,27 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent: 'parent',
       url: '/parent/login',
       controller: 'ParentController',
-      controllerAs: 'parent_login',
-      templateUrl: 'app/views/parent/login.html',
+      controllerAs: 'parent',
+      templateUrl: 'app/views/parent/login.html'
+    })
+    .state('parent.students',{
+      parent: 'parent',
+      url: '/parent/students',
+      templateUrl: 'app/views/parent/students.html',
+      controller: 'ParentController',
+      controllerAs: 'parent',
       resolve: {
-        action: () => {
-          return 'login';
-        }
+        students: ((Parent, $auth, $state) => {
+          $auth.validateUser()
+          .then(() => {
+            return Parent.students();
+          })
+          .catch(() => {
+            $state.go('parent.login');
+          })
+        })
       }
-    });
+    })
 
   $urlRouterProvider.otherwise('/');
 }

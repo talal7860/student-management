@@ -1,4 +1,4 @@
-form.form-horizontal
+form.form-horizontal(ng-submit="parent.loginAction()" method="post")
   fieldset
     // Form Name
     legend Parent login
@@ -6,17 +6,17 @@ form.form-horizontal
     .form-group
       label.col-md-4.control-label(for='email') Email
       .col-md-4
-        input#email.form-control.input-md(name='email', type='text', placeholder='enter your email', required='')
+        input#email.form-control.input-md(ng-model="parent.login_params.email" name='email', type='text', placeholder='enter your email', required='')
       // Password input
     .form-group
       label.col-md-4.control-label(for='password') Password
       .col-md-4
-        input#password.form-control.input-md(name='password', type='password', placeholder='enter your password', required='')
+        input#password.form-control.input-md(ng-model="parent.login_params.password"   name='password', type='password', placeholder='enter your password', required='')
     // Button
     .form-group
       label.col-md-4.control-label(for='login')
       .col-md-4
-        button#singlebutton.btn.btn-primary(name='singlebutton') Login
+        button#singlebutton.btn.btn-primary(name='button' type='submit') Login
     .form-group
       label.col-md-4.control-label(for='forgotpassword')
       .col-md-4

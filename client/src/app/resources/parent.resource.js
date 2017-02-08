@@ -1,20 +1,8 @@
-export function ParentResourceFactory($resource)
+export function ParentResourceFactory($resource, $auth)
 {
   'ngInject';
    return $resource('/api/parents/:action', null,
       {
-        'validate' : { method: 'POST', params: {
-            action : 'validate'
-          }
-        },
-        'new' : { method: 'GET', params: {
-            action: 'new'
-          }
-        },
-        'find_by_email' : { method: 'POST', params: {
-            action : 'find_by_email'
-          }
-        },
         'resetPassword' : { method: 'POST', params: {
             action : 'reset_password'
           }
@@ -26,6 +14,10 @@ export function ParentResourceFactory($resource)
         'loginAction' : { method: 'POST', params: {
             action : 'login_action'
           }
+        },
+        'students' : { method: 'GET', isArray: true, params: {
+            action : 'students'
+          }, headers: $auth.retrieveData('auth_headers')
         }
       }
    );
