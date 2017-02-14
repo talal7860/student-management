@@ -18,19 +18,7 @@ Bundler.require(*Rails.groups)
 
 module StudentManagementSystem
   class Application < Rails::Application
-    
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
-
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*',
-                 headers: :any,
-                 expose: ['access-token', 'token-type', 'client', 'expiry', 'uid'],
-                 methods: [:get, :post, :options]
-      end
-    end
-  end
 end

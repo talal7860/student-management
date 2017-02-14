@@ -56,19 +56,7 @@ ActiveAdmin.register TeachClass do
                 }
               }
       f.input :course_id, as: :hidden
-      f.input :branch,
-              as: :string,
-              input_html: {
-                class: 'autocomplete',
-                id: 'teach_class_branch_name',
-                name: '',
-                value: f.object.branch.try(:name),
-                data: {
-                  url: autocomplete_admin_branches_path,
-                  hidden_input: '#teach_class_branch_id'
-                }
-              }
-      f.input :branch_id, as: :hidden
+      f.input :branch_id, as: :select, :collection => Branch.all.map {|u| ["#{u.name} #{u.type_}", u.id]}
     end
     f.actions
   end

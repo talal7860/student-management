@@ -83,19 +83,7 @@ ActiveAdmin.register Student do
       f.input :cnic
       f.input :address
       f.input :studying_status
-      f.input :branch,
-              as: :string,
-              input_html: {
-                class: 'autocomplete',
-                id: 'student_branch_name',
-                name: '',
-                value: f.object.branch.try(:name),
-                data: {
-                  url: autocomplete_admin_branches_path,
-                  hidden_input: '#student_branch_id'
-                }
-              }
-      f.input :branch_id, as: :hidden
+      f.input :branch_id, as: :select, :collection => Branch.all.map {|u| ["#{u.name}, #{u.type_}", u.id]}
       f.input :matric_roll_no
       f.input :matric_marks
     end
