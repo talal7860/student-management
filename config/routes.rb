@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   devise_for :teachers
-  # devise_for :parents
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # root 'api#parents'
   mount_devise_token_auth_for 'Parent', at: 'auth-parent'
-  # mount_devise_token_auth_for 'Teacher', at: 'auth'
-  #resources :students
 
   namespace :api do
     resources :parents do

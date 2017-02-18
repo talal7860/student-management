@@ -20,7 +20,7 @@ $ ->
           $.ajax
             url: $input.data('url')
             dataType: 'json'
-            data: 
+            data:
               term: request.term
             success: (data) -> response(data)
         select: (event, ui) ->

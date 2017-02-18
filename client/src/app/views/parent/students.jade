@@ -1,4 +1,5 @@
 .row
+  button(type='button') Click Me!
   .col-lg-12
     h1 Students
     table.table.table-bordered.table-responsive.table-striped.table-hover
@@ -10,8 +11,9 @@
         th Branch Name
         th Actions
         tr(ng-repeat="student in parent.students")
-          td {{ student.name }}
+          td {{ student.name}}
           td {{ student.email }}
           td {{ student.student_class }}
           td {{ student.studying_status }}
           td {{ student.branch.name }}
+          td 

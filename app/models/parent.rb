@@ -4,6 +4,7 @@ class Parent < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
   has_many :students
   has_many :exams, through: :students
+  has_many :branches, through: :students
   has_many :attendances, through: :students
 
   def self.find_by_token(token)

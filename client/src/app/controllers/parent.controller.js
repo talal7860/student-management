@@ -1,5 +1,5 @@
 export class ParentController {
-  constructor (toastr, $auth, Parent, $window, students, $rootScope) {
+  constructor (toastr, $auth, Parent, $window, students, $rootScope, $state) {
     'ngInject';
     this.toastr = toastr;
     this.Parent = Parent;
@@ -15,6 +15,7 @@ export class ParentController {
         $rootScope.isLoggedIn = true;
     });
     this.students = students;
+    this.$state = $state;
   }
 
   loginAction() {
@@ -23,8 +24,8 @@ export class ParentController {
       this.login_params
     )
     .then((resp) => {
+      self.window.location.reload();
       self.toastr.success(resp.email,'Welcome ');
-      self.$window.location.href = '#/parent/students';
     })
     .catch((resp) => {
       self.toastr.error(resp);
