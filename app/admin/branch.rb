@@ -16,7 +16,6 @@ ActiveAdmin.register Branch do
       row :name
       row :type_
     end
-    active_admin_comments
   end
 
   permit_params :name, :type_

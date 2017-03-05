@@ -4,9 +4,9 @@ form.form-horizontal(ng-submit="parent.loginAction()" method="post")
     legend Parent login
     // Text input
     .form-group
-      label.col-md-4.control-label(for='email') Email
+      label.col-md-4.control-label(for='phone') Phone Number
       .col-md-4
-        input#email.form-control.input-md(ng-model="parent.login_params.email" name='email', type='text', placeholder='enter your email', required='')
+        input#phone.form-control.input-md(ng-model="parent.login_params.phone" name='phone', type='text', placeholder='Enter your phone number', required='')
       // Password input
     .form-group
       label.col-md-4.control-label(for='password') Password

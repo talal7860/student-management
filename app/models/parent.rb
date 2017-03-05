@@ -7,6 +7,14 @@ class Parent < ApplicationRecord
   has_many :branches, through: :students
   has_many :attendances, through: :students
 
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
+
   def self.find_by_token(token)
     self.with_reset_password_token(token)
   end

@@ -6,7 +6,7 @@ export class ParentController {
     this.auth = $auth;
     this.$window = $window;
     this.login_params = {
-      email: '',
+      phone: '',
       password: ''
     }
     $auth.validateUser()
@@ -21,7 +21,7 @@ export class ParentController {
   loginAction() {
     let self = this;
     this.auth.submitLogin(
-      this.login_params
+      self.login_params
     )
     .then((resp) => {
       self.window.location.reload();

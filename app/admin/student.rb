@@ -71,9 +71,9 @@ ActiveAdmin.register Student do
     end
     f.inputs '' do
       f.input :parent_name, label: "Father's name"
-      f.input :parent_email, label: "Father's email"
-      f.input :parent_cnic, label: "Father's cnic"
       f.input :parent_phone, label: "Father's phone no."
+      f.input :parent_cnic, label: "Father's cnic"
+      f.input :parent_email, label: "Father's email"
     end
     f.inputs '' do
       f.input :gender

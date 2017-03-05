@@ -3,10 +3,10 @@ require 'active_support/concern'
 module AccountSetting
   extend ActiveSupport::Concern
   included do
-    devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable
+    devise :database_authenticatable, :validatable, :trackable,:recoverable, :rememberable , authentication_keys: [:phone]
+           #:recoverable, :rememberable,  :validatable
+    before_validation :set_password, :downcase_email, :format_phone
 
-    before_validation :set_password, :downcase_email
     before_create :generate_reset_password_token
     after_create :send_welcome_mail
 
@@ -19,11 +19,15 @@ module AccountSetting
 
   private
 
+  def format_phone
+    self.phone.phony_formatted!(normalize: :PK, format: :international)
+  end
+
   def set_password
     return false if self.password or self.id.present?
-    generated_password = Devise.friendly_token.first(8)
-    self.password = generated_password
-    self.password_confirmation = generated_password
+    #generated_password = Devise.friendly_token.first(8)
+    self.password = 'password'
+    self.password_confirmation = 'password'
   end
 
   def generate_reset_password_token
