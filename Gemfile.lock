@@ -193,7 +193,7 @@ GEM
     polyamorous (1.3.1)
       activerecord (>= 3.0)
     public_suffix (2.0.5)
-    puma (3.6.2)
+    puma (3.12.3)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.7)
@@ -327,7 +327,7 @@ DEPENDENCIES
   pg
   phony
   phony_rails
-  puma (~> 3.0)
+  puma (~> 3.12)
   pundit
   rails (~> 5.0.0, >= 5.0.0.1)
   rb-readline
