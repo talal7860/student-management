@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.3.1'
 gem 'cancan'
 gem 'devise'
 gem 'haml-rails', '~> 0.9'
