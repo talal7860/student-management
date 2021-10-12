@@ -177,7 +177,7 @@ GEM
     mini_portile2 (2.5.1)
     minitest (5.14.4)
     multi_json (1.12.1)
-    nio4r (2.5.7)
+    nio4r (2.5.8)
     nokogiri (1.11.4)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -197,7 +197,7 @@ GEM
       activerecord (>= 3.0)
     popper_js (1.14.5)
     public_suffix (2.0.5)
-    puma (5.3.1)
+    puma (5.5.1)
       nio4r (~> 2.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
@@ -347,7 +347,7 @@ DEPENDENCIES
   pg
   phony
   phony_rails
-  puma (~> 5.3)
+  puma (~> 5.5)
   pundit
   rails (~> 5.0.7)
   rb-readline
